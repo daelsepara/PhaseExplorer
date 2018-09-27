@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+  </configuration>
+  <import>
+    <widget-library name="../bin/Release/PhaseExplorer.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="800 600">
+    <action-group name="Default">
+      <action id="QuitButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-quit</property>
+        <property name="Tooltip" translatable="yes">Exit Phase Explorer</property>
+        <signal name="Activated" handler="OnQuitButtonClicked" />
+      </action>
+      <action id="OpenInputButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-open</property>
+        <property name="Tooltip" translatable="yes">Open target pattern</property>
+        <signal name="Activated" handler="OnOpenInputButtonClicked" />
+      </action>
+      <action id="SaveInputButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+        <property name="Tooltip" translatable="yes">Save target pattern</property>
+        <signal name="Activated" handler="OnSaveInputButtonClicked" />
+      </action>
+      <action id="OpenPhaseButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-open</property>
+        <property name="Tooltip" translatable="yes">Open phase pattern</property>
+        <signal name="Activated" handler="OnOpenPhaseButtonClicked" />
+      </action>
+      <action id="SavePhaseButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+        <property name="Tooltip" translatable="yes">Save phase pattern</property>
+        <signal name="Activated" handler="OnSavePhaseButtonClicked" />
+      </action>
+      <action id="ComputePhaseButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-media-play</property>
+        <property name="Tooltip" translatable="yes">Compute phase pattern</property>
+        <signal name="Activated" handler="OnComputePhaseButtonClicked" />
+      </action>
+      <action id="AddPointsButton">
+        <property name="Type">Toggle</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-edit</property>
+        <property name="Tooltip" translatable="yes">Enable edit mode</property>
+        <property name="DrawAsRadio">False</property>
+        <property name="Active">False</property>
+      </action>
+      <action id="RemovePointButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-remove</property>
+        <property name="Tooltip" translatable="yes">Remove points</property>
+        <signal name="Activated" handler="OnRemovePointButtonClicked" />
+      </action>
+      <action id="DeletePointsButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-delete</property>
+        <property name="Tooltip" translatable="yes">Remove all points</property>
+        <signal name="Activated" handler="OnDeletePointsButtonClicked" />
+      </action>
+      <action id="ComputeMultipointsPhase">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-media-play</property>
+        <property name="Tooltip" translatable="yes">Compute phase pattern</property>
+        <signal name="Activated" handler="OnComputePhaseButtonClicked" />
+      </action>
+      <action id="ComputePropagationButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-media-play</property>
+        <property name="Tooltip" translatable="yes">Compute propagation</property>
+        <signal name="Activated" handler="OnComputePropagationButtonClicked" />
+      </action>
+      <action id="SaveReconstructionButton">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-save</property>
+        <property name="Tooltip" translatable="yes">Save reconstruction</property>
+        <signal name="Activated" handler="OnSaveReconstructionButtonClicked" />
+      </action>
+    </action-group>
+    <property name="MemberName" />
+    <property name="WidthRequest">800</property>
+    <property name="HeightRequest">600</property>
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="Icon">resource:PhaseExplorer.hologram.png</property>
+    <property name="WindowPosition">CenterAlways</property>
+    <property name="Resizable">False</property>
+    <property name="DefaultWidth">800</property>
+    <property name="DefaultHeight">600</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="MainLayout">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Toolbar" id="MainToolbar">
+            <property name="MemberName" />
+            <property name="ShowArrow">False</property>
+            <property name="ButtonStyle">Icons</property>
+            <node name="MainToolbar" type="Toolbar">
+              <node type="Toolitem" action="QuitButton" />
+            </node>
+          </widget>
+          <packing>
+            <property name="X">20</property>
+            <property name="Y">20</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Notebook" id="MainNotebook">
+            <property name="MemberName" />
+            <property name="WidthRequest">760</property>
+            <property name="HeightRequest">500</property>
+            <property name="CurrentPage">1</property>
+            <child>
+              <widget class="Gtk.Fixed" id="PageInputLayout">
+                <property name="MemberName" />
+                <property name="HasWindow">False</property>
+                <child>
+                  <widget class="Gtk.VScrollbar" id="InputScrollY">
+                    <property name="MemberName" />
+                    <property name="HeightRequest">256</property>
+                    <property name="Upper">20480</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnInputScrollYValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">20</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.EventBox" id="InputEventBox">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">256</property>
+                    <property name="HeightRequest">256</property>
+                    <signal name="ButtonPressEvent" handler="OnInputEventBoxButtonPressEvent" />
+                    <child>
+                      <widget class="Gtk.Image" id="InputImage">
+                        <property name="MemberName" />
+                        <property name="WidthRequest">256</property>
+                        <property name="HeightRequest">256</property>
+                      </widget>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="InputScrollX">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">256</property>
+                    <property name="Upper">20480</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnInputScrollXValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">306</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Toolbar" id="InputToolbar">
+                    <property name="MemberName" />
+                    <property name="ShowArrow">False</property>
+                    <property name="ButtonStyle">Icons</property>
+                    <node name="InputToolbar" type="Toolbar">
+                      <node type="Toolitem" action="OpenInputButton" />
+                      <node type="Toolitem" action="SaveInputButton" />
+                      <node type="Toolitem" action="ComputeMultipointsPhase" />
+                    </node>
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">350</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Notebook" id="TargetNotebook">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">360</property>
+                    <property name="HeightRequest">370</property>
+                    <property name="CurrentPage">0</property>
+                    <child>
+                      <widget class="Gtk.Fixed" id="LayoutPagePoints">
+                        <property name="MemberName" />
+                        <property name="HasWindow">False</property>
+                        <child>
+                          <widget class="Gtk.ScrolledWindow" id="PointsWindow">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">320</property>
+                            <property name="HeightRequest">140</property>
+                            <property name="ShadowType">In</property>
+                            <child>
+                              <widget class="Gtk.TextView" id="PointsView">
+                                <property name="MemberName" />
+                                <property name="ShowScrollbars">True</property>
+                                <property name="Editable">False</property>
+                                <property name="AcceptsTab">False</property>
+                                <property name="Text" translatable="yes" />
+                              </widget>
+                            </child>
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Toolbar" id="PointsToolbar">
+                            <property name="MemberName" />
+                            <property name="ShowArrow">False</property>
+                            <property name="ButtonStyle">Icons</property>
+                            <node name="PointsToolbar" type="Toolbar">
+                              <node type="Toolitem" action="AddPointsButton" />
+                              <node type="Toolitem" action="RemovePointButton" />
+                              <node type="Toolitem" action="DeletePointsButton" />
+                            </node>
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">180</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.SpinButton" id="NFFT">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">140</property>
+                            <property name="Lower">8</property>
+                            <property name="Upper">2048</property>
+                            <property name="PageIncrement">8</property>
+                            <property name="StepIncrement">8</property>
+                            <property name="ClimbRate">1</property>
+                            <property name="Numeric">True</property>
+                            <property name="Value">32</property>
+                            <signal name="ValueChanged" handler="OnNFFTValueChanged" />
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">230</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="LabelNFFT">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">FFT</property>
+                          </widget>
+                          <packing>
+                            <property name="X">170</property>
+                            <property name="Y">235</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Entry" id="Elapsed">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">140</property>
+                            <property name="IsEditable">True</property>
+                            <property name="InvisibleChar">•</property>
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">270</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="LabelElapsed">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">Elapsed time (ms)</property>
+                          </widget>
+                          <packing>
+                            <property name="X">170</property>
+                            <property name="Y">275</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="LabelPagePoints">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">Points</property>
+                      </widget>
+                      <packing>
+                        <property name="type">tab</property>
+                      </packing>
+                    </child>
+                  </widget>
+                  <packing>
+                    <property name="X">370</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+              </widget>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="LabelPageInput">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Input</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Fixed" id="LayoutPagePhase">
+                <property name="MemberName" />
+                <property name="HasWindow">False</property>
+                <child>
+                  <widget class="Gtk.VScrollbar" id="PhaseScrollY">
+                    <property name="MemberName" />
+                    <property name="HeightRequest">256</property>
+                    <property name="Upper">20480</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnPhaseScrollYValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">20</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Image" id="PhaseImage">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">256</property>
+                    <property name="HeightRequest">256</property>
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="PhaseScrollX">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">256</property>
+                    <property name="Upper">20480</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnPhaseScrollXValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">306</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="Iterations">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Lower">1</property>
+                    <property name="Upper">1000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <property name="Value">100</property>
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">50</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelIterations">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Iterations</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">55</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Toolbar" id="PhaseToolbar">
+                    <property name="MemberName" />
+                    <property name="ShowArrow">False</property>
+                    <property name="ButtonStyle">Icons</property>
+                    <node name="PhaseToolbar" type="Toolbar">
+                      <node type="Toolitem" action="OpenPhaseButton" />
+                      <node type="Toolitem" action="SavePhaseButton" />
+                      <node type="Toolitem" action="ComputePhaseButton" />
+                    </node>
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">350</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.CheckButton" id="LensPhase">
+                    <property name="MemberName" />
+                    <property name="Label" translatable="yes">Add lens phase</property>
+                    <property name="DrawIndicator">True</property>
+                    <property name="HasLabel">True</property>
+                    <property name="UseUnderline">True</property>
+                    <property name="FocusOnClick">False</property>
+                    <signal name="Toggled" handler="OnLensPhaseToggled" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">90</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="LensZ">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnLensZValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">120</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="LensZScroll">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">400</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnLensZScrollValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">160</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelLensZ">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Z (&amp;#956;m)</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">125</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="Pitch">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnPitchValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">190</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="Wavelength">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnWavelengthValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">230</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelWavelength">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Wavelength  (nm)</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">235</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelPitch">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Pitch (&amp;#956;m)</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">195</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.CheckButton" id="BlazedPhase">
+                    <property name="MemberName" />
+                    <property name="Label" translatable="yes">Add blazed mirror phase</property>
+                    <property name="DrawIndicator">True</property>
+                    <property name="HasLabel">True</property>
+                    <property name="UseUnderline">True</property>
+                    <property name="FocusOnClick">False</property>
+                    <signal name="Toggled" handler="OnBlazedPhaseToggled" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">270</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="BlazedX">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnBlazedXValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">300</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="BlazedScrollX">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">400</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnBlazedScrollXValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">340</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelBlazedX">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">X</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">305</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="BlazedY">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnBlazedYValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">370</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="BlazedScrollY">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">400</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnBlazedScrollYValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">410</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelBlazedY">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Y</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">375</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.CheckButton" id="GerchbergSaxtonPhase">
+                    <property name="MemberName" />
+                    <property name="Label" translatable="yes">Add Gerchberg-Saxton phase</property>
+                    <property name="DrawIndicator">True</property>
+                    <property name="HasLabel">True</property>
+                    <property name="UseUnderline">True</property>
+                    <property name="FocusOnClick">False</property>
+                    <signal name="Toggled" handler="OnGerchbergSaxtonPhaseToggled" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="PhaseElapsed">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="IsEditable">False</property>
+                    <property name="InvisibleChar">•</property>
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">435</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelPhaseElapsed">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Elapsed time (ms)</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">440</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="LabelPagePhase">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Phase</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Fixed" id="LayoutPageReconstruction">
+                <property name="MemberName" />
+                <property name="HasWindow">False</property>
+                <child>
+                  <widget class="Gtk.Image" id="ReconImage">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">256</property>
+                    <property name="HeightRequest">256</property>
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.VScrollbar" id="ReconScrollY">
+                    <property name="MemberName" />
+                    <property name="HeightRequest">256</property>
+                    <property name="Upper">100</property>
+                    <property name="PageIncrement">10</property>
+                    <property name="PageSize">10</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnReconScrollYValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">20</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="ReconScrollX">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">256</property>
+                    <property name="Upper">100</property>
+                    <property name="PageIncrement">10</property>
+                    <property name="PageSize">10</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnReconScrollXValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">70</property>
+                    <property name="Y">306</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelPropagation">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">&lt;b&gt;Propagation&lt;/b&gt;</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">20</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="PropagationZ">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnPropagationZValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">130</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.HScrollbar" id="PropagationScrollZ">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">400</property>
+                    <property name="Lower">-10000</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
+                    <property name="StepIncrement">1</property>
+                    <signal name="ValueChanged" handler="OnPropagationScrollZValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">170</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelPropagationZ1">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Distance (&amp;#956;m)</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">135</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Toolbar" id="ReconToolbar">
+                    <property name="MemberName" />
+                    <property name="ShowArrow">False</property>
+                    <property name="ButtonStyle">Icons</property>
+                    <node name="ReconToolbar" type="Toolbar">
+                      <node type="Toolitem" action="ComputePropagationButton" />
+                      <node type="Toolitem" action="SaveReconstructionButton" />
+                    </node>
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">200</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="PropagationWavelength">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Upper">100000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnPropagationWavelengthValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">50</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelPropagationWavelength">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Wavelength (nm)</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">55</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.SpinButton" id="PropagationPitch">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="Upper">10000</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="StepIncrement">1</property>
+                    <property name="ClimbRate">1</property>
+                    <property name="Numeric">True</property>
+                    <signal name="ValueChanged" handler="OnPropagationPitchValueChanged" />
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">90</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelPropagationPitch">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Pitch (&amp;#956;m)</property>
+                    <property name="UseMarkup">True</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">95</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Entry" id="ReconElapsed">
+                    <property name="MemberName" />
+                    <property name="WidthRequest">140</property>
+                    <property name="IsEditable">False</property>
+                    <property name="InvisibleChar">•</property>
+                  </widget>
+                  <packing>
+                    <property name="X">340</property>
+                    <property name="Y">250</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="Gtk.Label" id="LabelReconElapsed">
+                    <property name="MemberName" />
+                    <property name="LabelProp" translatable="yes">Elapsed time (ms)</property>
+                  </widget>
+                  <packing>
+                    <property name="X">490</property>
+                    <property name="Y">255</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Label" id="LabelPageReconstruction">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">Reconstruction</property>
+              </widget>
+              <packing>
+                <property name="type">tab</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">20</property>
+            <property name="Y">70</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
