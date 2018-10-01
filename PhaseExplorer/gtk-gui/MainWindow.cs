@@ -214,7 +214,7 @@ public partial class MainWindow
 		this.MainNotebook.WidthRequest = 760;
 		this.MainNotebook.HeightRequest = 500;
 		this.MainNotebook.Name = "MainNotebook";
-		this.MainNotebook.CurrentPage = 1;
+		this.MainNotebook.CurrentPage = 2;
 		// Container child MainNotebook.Gtk.Notebook+NotebookChild
 		this.PageInputLayout = new global::Gtk.Fixed();
 		this.PageInputLayout.Name = "PageInputLayout";
@@ -648,9 +648,9 @@ public partial class MainWindow
 		this.ReconScrollY = new global::Gtk.VScrollbar(null);
 		this.ReconScrollY.HeightRequest = 256;
 		this.ReconScrollY.Name = "ReconScrollY";
-		this.ReconScrollY.Adjustment.Upper = 100D;
-		this.ReconScrollY.Adjustment.PageIncrement = 10D;
-		this.ReconScrollY.Adjustment.PageSize = 10D;
+		this.ReconScrollY.Adjustment.Upper = 20480D;
+		this.ReconScrollY.Adjustment.PageIncrement = 1D;
+		this.ReconScrollY.Adjustment.PageSize = 1D;
 		this.ReconScrollY.Adjustment.StepIncrement = 1D;
 		this.LayoutPageReconstruction.Add(this.ReconScrollY);
 		global::Gtk.Fixed.FixedChild w44 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconScrollY]));

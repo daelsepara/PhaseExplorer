@@ -634,7 +634,7 @@ public partial class MainWindow : Gtk.Window
 
 			ResetReconScrollBars();
 
-			RenderImage(ReconImage, ReconPixbuf, Parameters.PhaseX, Parameters.PhaseY);
+			RenderImage(ReconImage, ReconPixbuf, Parameters.ReconX, Parameters.ReconY);
 		}
 
 		intensity.Free();

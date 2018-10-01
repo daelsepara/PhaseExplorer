@@ -127,7 +127,7 @@
             <property name="MemberName" />
             <property name="WidthRequest">760</property>
             <property name="HeightRequest">500</property>
-            <property name="CurrentPage">1</property>
+            <property name="CurrentPage">0</property>
             <child>
               <widget class="Gtk.Fixed" id="PageInputLayout">
                 <property name="MemberName" />
@@ -694,9 +694,9 @@
                   <widget class="Gtk.VScrollbar" id="ReconScrollY">
                     <property name="MemberName" />
                     <property name="HeightRequest">256</property>
-                    <property name="Upper">100</property>
-                    <property name="PageIncrement">10</property>
-                    <property name="PageSize">10</property>
+                    <property name="Upper">20480</property>
+                    <property name="PageIncrement">1</property>
+                    <property name="PageSize">1</property>
                     <property name="StepIncrement">1</property>
                     <signal name="ValueChanged" handler="OnReconScrollYValueChanged" />
                   </widget>
