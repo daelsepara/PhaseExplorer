@@ -2,17 +2,17 @@ using Gtk;
 
 namespace PhaseExplorer
 {
-	class MainClass
-	{
-		public static void Main(string[] args)
-		{
-			Application.Init();
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            Application.Init();
 
-			MainWindow win = new MainWindow();
+            MainWindow win = new MainWindow();
 
-			win.Show();
+            win.Show();
 
-			Application.Run();
-		}
-	}
+            Application.Run();
+        }
+    }
 }
