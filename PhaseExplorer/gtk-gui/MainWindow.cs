@@ -67,6 +67,18 @@ public partial class MainWindow
 
 	private global::Gtk.Label LabelPagePoints;
 
+	private global::Gtk.Fixed LayoutPageInputParameters;
+
+	private global::Gtk.Label LabelWidth;
+
+	private global::Gtk.SpinButton InputWidth;
+
+	private global::Gtk.Label LabelHeight;
+
+	private global::Gtk.SpinButton InputHeight;
+
+	private global::Gtk.Label LabelPageInputParameters;
+
 	private global::Gtk.Label LabelPageInput;
 
 	private global::Gtk.Fixed LayoutPagePhase;
@@ -214,7 +226,7 @@ public partial class MainWindow
 		this.MainNotebook.WidthRequest = 760;
 		this.MainNotebook.HeightRequest = 500;
 		this.MainNotebook.Name = "MainNotebook";
-		this.MainNotebook.CurrentPage = 2;
+		this.MainNotebook.CurrentPage = 0;
 		// Container child MainNotebook.Gtk.Notebook+NotebookChild
 		this.PageInputLayout = new global::Gtk.Fixed();
 		this.PageInputLayout.Name = "PageInputLayout";
@@ -354,10 +366,63 @@ public partial class MainWindow
 		this.LabelPagePoints.LabelProp = global::Mono.Unix.Catalog.GetString("Points");
 		this.TargetNotebook.SetTabLabel(this.LayoutPagePoints, this.LabelPagePoints);
 		this.LabelPagePoints.ShowAll();
-		this.PageInputLayout.Add(this.TargetNotebook);
-		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.PageInputLayout[this.TargetNotebook]));
-		w16.X = 370;
+		// Container child TargetNotebook.Gtk.Notebook+NotebookChild
+		this.LayoutPageInputParameters = new global::Gtk.Fixed();
+		this.LayoutPageInputParameters.Name = "LayoutPageInputParameters";
+		this.LayoutPageInputParameters.HasWindow = false;
+		// Container child LayoutPageInputParameters.Gtk.Fixed+FixedChild
+		this.LabelWidth = new global::Gtk.Label();
+		this.LabelWidth.Name = "LabelWidth";
+		this.LabelWidth.LabelProp = global::Mono.Unix.Catalog.GetString("Width");
+		this.LayoutPageInputParameters.Add(this.LabelWidth);
+		global::Gtk.Fixed.FixedChild w16 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageInputParameters[this.LabelWidth]));
+		w16.X = 20;
 		w16.Y = 20;
+		// Container child LayoutPageInputParameters.Gtk.Fixed+FixedChild
+		this.InputWidth = new global::Gtk.SpinButton(256D, 20480D, 1D);
+		this.InputWidth.WidthRequest = 150;
+		this.InputWidth.Name = "InputWidth";
+		this.InputWidth.Adjustment.PageIncrement = 1D;
+		this.InputWidth.ClimbRate = 1D;
+		this.InputWidth.Numeric = true;
+		this.InputWidth.Value = 256D;
+		this.LayoutPageInputParameters.Add(this.InputWidth);
+		global::Gtk.Fixed.FixedChild w17 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageInputParameters[this.InputWidth]));
+		w17.X = 20;
+		w17.Y = 40;
+		// Container child LayoutPageInputParameters.Gtk.Fixed+FixedChild
+		this.LabelHeight = new global::Gtk.Label();
+		this.LabelHeight.Name = "LabelHeight";
+		this.LabelHeight.LabelProp = global::Mono.Unix.Catalog.GetString("Height");
+		this.LayoutPageInputParameters.Add(this.LabelHeight);
+		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageInputParameters[this.LabelHeight]));
+		w18.X = 20;
+		w18.Y = 80;
+		// Container child LayoutPageInputParameters.Gtk.Fixed+FixedChild
+		this.InputHeight = new global::Gtk.SpinButton(256D, 20480D, 1D);
+		this.InputHeight.WidthRequest = 150;
+		this.InputHeight.Name = "InputHeight";
+		this.InputHeight.Adjustment.PageIncrement = 1D;
+		this.InputHeight.ClimbRate = 1D;
+		this.InputHeight.Numeric = true;
+		this.InputHeight.Value = 256D;
+		this.LayoutPageInputParameters.Add(this.InputHeight);
+		global::Gtk.Fixed.FixedChild w19 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageInputParameters[this.InputHeight]));
+		w19.X = 20;
+		w19.Y = 100;
+		this.TargetNotebook.Add(this.LayoutPageInputParameters);
+		global::Gtk.Notebook.NotebookChild w20 = ((global::Gtk.Notebook.NotebookChild)(this.TargetNotebook[this.LayoutPageInputParameters]));
+		w20.Position = 1;
+		// Notebook tab
+		this.LabelPageInputParameters = new global::Gtk.Label();
+		this.LabelPageInputParameters.Name = "LabelPageInputParameters";
+		this.LabelPageInputParameters.LabelProp = global::Mono.Unix.Catalog.GetString("Input");
+		this.TargetNotebook.SetTabLabel(this.LayoutPageInputParameters, this.LabelPageInputParameters);
+		this.LabelPageInputParameters.ShowAll();
+		this.PageInputLayout.Add(this.TargetNotebook);
+		global::Gtk.Fixed.FixedChild w21 = ((global::Gtk.Fixed.FixedChild)(this.PageInputLayout[this.TargetNotebook]));
+		w21.X = 370;
+		w21.Y = 20;
 		this.MainNotebook.Add(this.PageInputLayout);
 		// Notebook tab
 		this.LabelPageInput = new global::Gtk.Label();
@@ -378,18 +443,18 @@ public partial class MainWindow
 		this.PhaseScrollY.Adjustment.PageSize = 1D;
 		this.PhaseScrollY.Adjustment.StepIncrement = 1D;
 		this.LayoutPagePhase.Add(this.PhaseScrollY);
-		global::Gtk.Fixed.FixedChild w18 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseScrollY]));
-		w18.X = 20;
-		w18.Y = 20;
+		global::Gtk.Fixed.FixedChild w23 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseScrollY]));
+		w23.X = 20;
+		w23.Y = 20;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.PhaseImage = new global::Gtk.Image();
 		this.PhaseImage.WidthRequest = 256;
 		this.PhaseImage.HeightRequest = 256;
 		this.PhaseImage.Name = "PhaseImage";
 		this.LayoutPagePhase.Add(this.PhaseImage);
-		global::Gtk.Fixed.FixedChild w19 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseImage]));
-		w19.X = 70;
-		w19.Y = 20;
+		global::Gtk.Fixed.FixedChild w24 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseImage]));
+		w24.X = 70;
+		w24.Y = 20;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.PhaseScrollX = new global::Gtk.HScrollbar(null);
 		this.PhaseScrollX.WidthRequest = 256;
@@ -399,9 +464,9 @@ public partial class MainWindow
 		this.PhaseScrollX.Adjustment.PageSize = 1D;
 		this.PhaseScrollX.Adjustment.StepIncrement = 1D;
 		this.LayoutPagePhase.Add(this.PhaseScrollX);
-		global::Gtk.Fixed.FixedChild w20 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseScrollX]));
-		w20.X = 70;
-		w20.Y = 306;
+		global::Gtk.Fixed.FixedChild w25 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseScrollX]));
+		w25.X = 70;
+		w25.Y = 306;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.Iterations = new global::Gtk.SpinButton(1D, 1000D, 1D);
 		this.Iterations.WidthRequest = 140;
@@ -411,17 +476,17 @@ public partial class MainWindow
 		this.Iterations.Numeric = true;
 		this.Iterations.Value = 100D;
 		this.LayoutPagePhase.Add(this.Iterations);
-		global::Gtk.Fixed.FixedChild w21 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.Iterations]));
-		w21.X = 340;
-		w21.Y = 50;
+		global::Gtk.Fixed.FixedChild w26 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.Iterations]));
+		w26.X = 340;
+		w26.Y = 50;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelIterations = new global::Gtk.Label();
 		this.LabelIterations.Name = "LabelIterations";
 		this.LabelIterations.LabelProp = global::Mono.Unix.Catalog.GetString("Iterations");
 		this.LayoutPagePhase.Add(this.LabelIterations);
-		global::Gtk.Fixed.FixedChild w22 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelIterations]));
-		w22.X = 490;
-		w22.Y = 55;
+		global::Gtk.Fixed.FixedChild w27 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelIterations]));
+		w27.X = 490;
+		w27.Y = 55;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.UIManager.AddUiFromString("<ui><toolbar name=\'PhaseToolbar\'><toolitem name=\'OpenPhaseButton\' action=\'OpenPha" +
 				"seButton\'/><toolitem name=\'SavePhaseButton\' action=\'SavePhaseButton\'/><toolitem " +
@@ -431,9 +496,9 @@ public partial class MainWindow
 		this.PhaseToolbar.ShowArrow = false;
 		this.PhaseToolbar.ToolbarStyle = ((global::Gtk.ToolbarStyle)(0));
 		this.LayoutPagePhase.Add(this.PhaseToolbar);
-		global::Gtk.Fixed.FixedChild w23 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseToolbar]));
-		w23.X = 70;
-		w23.Y = 350;
+		global::Gtk.Fixed.FixedChild w28 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseToolbar]));
+		w28.X = 70;
+		w28.Y = 350;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LensPhase = new global::Gtk.CheckButton();
 		this.LensPhase.Name = "LensPhase";
@@ -442,9 +507,9 @@ public partial class MainWindow
 		this.LensPhase.UseUnderline = true;
 		this.LensPhase.FocusOnClick = false;
 		this.LayoutPagePhase.Add(this.LensPhase);
-		global::Gtk.Fixed.FixedChild w24 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LensPhase]));
-		w24.X = 340;
-		w24.Y = 90;
+		global::Gtk.Fixed.FixedChild w29 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LensPhase]));
+		w29.X = 340;
+		w29.Y = 90;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LensZ = new global::Gtk.SpinButton(-10000D, 10000D, 1D);
 		this.LensZ.WidthRequest = 140;
@@ -453,9 +518,9 @@ public partial class MainWindow
 		this.LensZ.ClimbRate = 1D;
 		this.LensZ.Numeric = true;
 		this.LayoutPagePhase.Add(this.LensZ);
-		global::Gtk.Fixed.FixedChild w25 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LensZ]));
-		w25.X = 340;
-		w25.Y = 120;
+		global::Gtk.Fixed.FixedChild w30 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LensZ]));
+		w30.X = 340;
+		w30.Y = 120;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LensZScroll = new global::Gtk.HScrollbar(null);
 		this.LensZScroll.WidthRequest = 400;
@@ -466,18 +531,18 @@ public partial class MainWindow
 		this.LensZScroll.Adjustment.PageSize = 1D;
 		this.LensZScroll.Adjustment.StepIncrement = 1D;
 		this.LayoutPagePhase.Add(this.LensZScroll);
-		global::Gtk.Fixed.FixedChild w26 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LensZScroll]));
-		w26.X = 340;
-		w26.Y = 160;
+		global::Gtk.Fixed.FixedChild w31 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LensZScroll]));
+		w31.X = 340;
+		w31.Y = 160;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelLensZ = new global::Gtk.Label();
 		this.LabelLensZ.Name = "LabelLensZ";
 		this.LabelLensZ.LabelProp = global::Mono.Unix.Catalog.GetString("Z (&#956;m)");
 		this.LabelLensZ.UseMarkup = true;
 		this.LayoutPagePhase.Add(this.LabelLensZ);
-		global::Gtk.Fixed.FixedChild w27 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelLensZ]));
-		w27.X = 490;
-		w27.Y = 125;
+		global::Gtk.Fixed.FixedChild w32 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelLensZ]));
+		w32.X = 490;
+		w32.Y = 125;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.Pitch = new global::Gtk.SpinButton(0D, 10000D, 1D);
 		this.Pitch.WidthRequest = 140;
@@ -486,9 +551,9 @@ public partial class MainWindow
 		this.Pitch.ClimbRate = 1D;
 		this.Pitch.Numeric = true;
 		this.LayoutPagePhase.Add(this.Pitch);
-		global::Gtk.Fixed.FixedChild w28 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.Pitch]));
-		w28.X = 340;
-		w28.Y = 190;
+		global::Gtk.Fixed.FixedChild w33 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.Pitch]));
+		w33.X = 340;
+		w33.Y = 190;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.Wavelength = new global::Gtk.SpinButton(0D, 10000D, 1D);
 		this.Wavelength.WidthRequest = 140;
@@ -497,27 +562,27 @@ public partial class MainWindow
 		this.Wavelength.ClimbRate = 1D;
 		this.Wavelength.Numeric = true;
 		this.LayoutPagePhase.Add(this.Wavelength);
-		global::Gtk.Fixed.FixedChild w29 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.Wavelength]));
-		w29.X = 340;
-		w29.Y = 230;
+		global::Gtk.Fixed.FixedChild w34 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.Wavelength]));
+		w34.X = 340;
+		w34.Y = 230;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelWavelength = new global::Gtk.Label();
 		this.LabelWavelength.Name = "LabelWavelength";
 		this.LabelWavelength.LabelProp = global::Mono.Unix.Catalog.GetString("Wavelength  (nm)");
 		this.LabelWavelength.UseMarkup = true;
 		this.LayoutPagePhase.Add(this.LabelWavelength);
-		global::Gtk.Fixed.FixedChild w30 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelWavelength]));
-		w30.X = 490;
-		w30.Y = 235;
+		global::Gtk.Fixed.FixedChild w35 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelWavelength]));
+		w35.X = 490;
+		w35.Y = 235;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelPitch = new global::Gtk.Label();
 		this.LabelPitch.Name = "LabelPitch";
 		this.LabelPitch.LabelProp = global::Mono.Unix.Catalog.GetString("Pitch (&#956;m)");
 		this.LabelPitch.UseMarkup = true;
 		this.LayoutPagePhase.Add(this.LabelPitch);
-		global::Gtk.Fixed.FixedChild w31 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelPitch]));
-		w31.X = 490;
-		w31.Y = 195;
+		global::Gtk.Fixed.FixedChild w36 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelPitch]));
+		w36.X = 490;
+		w36.Y = 195;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.BlazedPhase = new global::Gtk.CheckButton();
 		this.BlazedPhase.Name = "BlazedPhase";
@@ -526,9 +591,9 @@ public partial class MainWindow
 		this.BlazedPhase.UseUnderline = true;
 		this.BlazedPhase.FocusOnClick = false;
 		this.LayoutPagePhase.Add(this.BlazedPhase);
-		global::Gtk.Fixed.FixedChild w32 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedPhase]));
-		w32.X = 340;
-		w32.Y = 270;
+		global::Gtk.Fixed.FixedChild w37 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedPhase]));
+		w37.X = 340;
+		w37.Y = 270;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.BlazedX = new global::Gtk.SpinButton(-10000D, 10000D, 1D);
 		this.BlazedX.WidthRequest = 140;
@@ -537,9 +602,9 @@ public partial class MainWindow
 		this.BlazedX.ClimbRate = 1D;
 		this.BlazedX.Numeric = true;
 		this.LayoutPagePhase.Add(this.BlazedX);
-		global::Gtk.Fixed.FixedChild w33 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedX]));
-		w33.X = 340;
-		w33.Y = 300;
+		global::Gtk.Fixed.FixedChild w38 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedX]));
+		w38.X = 340;
+		w38.Y = 300;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.BlazedScrollX = new global::Gtk.HScrollbar(null);
 		this.BlazedScrollX.WidthRequest = 400;
@@ -550,17 +615,17 @@ public partial class MainWindow
 		this.BlazedScrollX.Adjustment.PageSize = 1D;
 		this.BlazedScrollX.Adjustment.StepIncrement = 1D;
 		this.LayoutPagePhase.Add(this.BlazedScrollX);
-		global::Gtk.Fixed.FixedChild w34 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedScrollX]));
-		w34.X = 340;
-		w34.Y = 340;
+		global::Gtk.Fixed.FixedChild w39 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedScrollX]));
+		w39.X = 340;
+		w39.Y = 340;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelBlazedX = new global::Gtk.Label();
 		this.LabelBlazedX.Name = "LabelBlazedX";
 		this.LabelBlazedX.LabelProp = global::Mono.Unix.Catalog.GetString("X");
 		this.LayoutPagePhase.Add(this.LabelBlazedX);
-		global::Gtk.Fixed.FixedChild w35 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelBlazedX]));
-		w35.X = 490;
-		w35.Y = 305;
+		global::Gtk.Fixed.FixedChild w40 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelBlazedX]));
+		w40.X = 490;
+		w40.Y = 305;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.BlazedY = new global::Gtk.SpinButton(-10000D, 10000D, 1D);
 		this.BlazedY.WidthRequest = 140;
@@ -569,9 +634,9 @@ public partial class MainWindow
 		this.BlazedY.ClimbRate = 1D;
 		this.BlazedY.Numeric = true;
 		this.LayoutPagePhase.Add(this.BlazedY);
-		global::Gtk.Fixed.FixedChild w36 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedY]));
-		w36.X = 340;
-		w36.Y = 370;
+		global::Gtk.Fixed.FixedChild w41 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedY]));
+		w41.X = 340;
+		w41.Y = 370;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.BlazedScrollY = new global::Gtk.HScrollbar(null);
 		this.BlazedScrollY.WidthRequest = 400;
@@ -582,17 +647,17 @@ public partial class MainWindow
 		this.BlazedScrollY.Adjustment.PageSize = 1D;
 		this.BlazedScrollY.Adjustment.StepIncrement = 1D;
 		this.LayoutPagePhase.Add(this.BlazedScrollY);
-		global::Gtk.Fixed.FixedChild w37 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedScrollY]));
-		w37.X = 340;
-		w37.Y = 410;
+		global::Gtk.Fixed.FixedChild w42 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.BlazedScrollY]));
+		w42.X = 340;
+		w42.Y = 410;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelBlazedY = new global::Gtk.Label();
 		this.LabelBlazedY.Name = "LabelBlazedY";
 		this.LabelBlazedY.LabelProp = global::Mono.Unix.Catalog.GetString("Y");
 		this.LayoutPagePhase.Add(this.LabelBlazedY);
-		global::Gtk.Fixed.FixedChild w38 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelBlazedY]));
-		w38.X = 490;
-		w38.Y = 375;
+		global::Gtk.Fixed.FixedChild w43 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelBlazedY]));
+		w43.X = 490;
+		w43.Y = 375;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.GerchbergSaxtonPhase = new global::Gtk.CheckButton();
 		this.GerchbergSaxtonPhase.Name = "GerchbergSaxtonPhase";
@@ -601,9 +666,9 @@ public partial class MainWindow
 		this.GerchbergSaxtonPhase.UseUnderline = true;
 		this.GerchbergSaxtonPhase.FocusOnClick = false;
 		this.LayoutPagePhase.Add(this.GerchbergSaxtonPhase);
-		global::Gtk.Fixed.FixedChild w39 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.GerchbergSaxtonPhase]));
-		w39.X = 340;
-		w39.Y = 20;
+		global::Gtk.Fixed.FixedChild w44 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.GerchbergSaxtonPhase]));
+		w44.X = 340;
+		w44.Y = 20;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.PhaseElapsed = new global::Gtk.Entry();
 		this.PhaseElapsed.WidthRequest = 140;
@@ -611,20 +676,20 @@ public partial class MainWindow
 		this.PhaseElapsed.IsEditable = false;
 		this.PhaseElapsed.InvisibleChar = '•';
 		this.LayoutPagePhase.Add(this.PhaseElapsed);
-		global::Gtk.Fixed.FixedChild w40 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseElapsed]));
-		w40.X = 340;
-		w40.Y = 435;
+		global::Gtk.Fixed.FixedChild w45 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.PhaseElapsed]));
+		w45.X = 340;
+		w45.Y = 435;
 		// Container child LayoutPagePhase.Gtk.Fixed+FixedChild
 		this.LabelPhaseElapsed = new global::Gtk.Label();
 		this.LabelPhaseElapsed.Name = "LabelPhaseElapsed";
 		this.LabelPhaseElapsed.LabelProp = global::Mono.Unix.Catalog.GetString("Elapsed time (ms)");
 		this.LayoutPagePhase.Add(this.LabelPhaseElapsed);
-		global::Gtk.Fixed.FixedChild w41 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelPhaseElapsed]));
-		w41.X = 490;
-		w41.Y = 440;
+		global::Gtk.Fixed.FixedChild w46 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPagePhase[this.LabelPhaseElapsed]));
+		w46.X = 490;
+		w46.Y = 440;
 		this.MainNotebook.Add(this.LayoutPagePhase);
-		global::Gtk.Notebook.NotebookChild w42 = ((global::Gtk.Notebook.NotebookChild)(this.MainNotebook[this.LayoutPagePhase]));
-		w42.Position = 1;
+		global::Gtk.Notebook.NotebookChild w47 = ((global::Gtk.Notebook.NotebookChild)(this.MainNotebook[this.LayoutPagePhase]));
+		w47.Position = 1;
 		// Notebook tab
 		this.LabelPagePhase = new global::Gtk.Label();
 		this.LabelPagePhase.Name = "LabelPagePhase";
@@ -641,9 +706,9 @@ public partial class MainWindow
 		this.ReconImage.HeightRequest = 256;
 		this.ReconImage.Name = "ReconImage";
 		this.LayoutPageReconstruction.Add(this.ReconImage);
-		global::Gtk.Fixed.FixedChild w43 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconImage]));
-		w43.X = 70;
-		w43.Y = 20;
+		global::Gtk.Fixed.FixedChild w48 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconImage]));
+		w48.X = 70;
+		w48.Y = 20;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.ReconScrollY = new global::Gtk.VScrollbar(null);
 		this.ReconScrollY.HeightRequest = 256;
@@ -653,9 +718,9 @@ public partial class MainWindow
 		this.ReconScrollY.Adjustment.PageSize = 1D;
 		this.ReconScrollY.Adjustment.StepIncrement = 1D;
 		this.LayoutPageReconstruction.Add(this.ReconScrollY);
-		global::Gtk.Fixed.FixedChild w44 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconScrollY]));
-		w44.X = 20;
-		w44.Y = 20;
+		global::Gtk.Fixed.FixedChild w49 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconScrollY]));
+		w49.X = 20;
+		w49.Y = 20;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.ReconScrollX = new global::Gtk.HScrollbar(null);
 		this.ReconScrollX.WidthRequest = 256;
@@ -665,18 +730,18 @@ public partial class MainWindow
 		this.ReconScrollX.Adjustment.PageSize = 10D;
 		this.ReconScrollX.Adjustment.StepIncrement = 1D;
 		this.LayoutPageReconstruction.Add(this.ReconScrollX);
-		global::Gtk.Fixed.FixedChild w45 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconScrollX]));
-		w45.X = 70;
-		w45.Y = 306;
+		global::Gtk.Fixed.FixedChild w50 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconScrollX]));
+		w50.X = 70;
+		w50.Y = 306;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.LabelPropagation = new global::Gtk.Label();
 		this.LabelPropagation.Name = "LabelPropagation";
 		this.LabelPropagation.LabelProp = global::Mono.Unix.Catalog.GetString("<b>Propagation</b>");
 		this.LabelPropagation.UseMarkup = true;
 		this.LayoutPageReconstruction.Add(this.LabelPropagation);
-		global::Gtk.Fixed.FixedChild w46 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagation]));
-		w46.X = 340;
-		w46.Y = 20;
+		global::Gtk.Fixed.FixedChild w51 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagation]));
+		w51.X = 340;
+		w51.Y = 20;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.PropagationZ = new global::Gtk.SpinButton(-10000D, 10000D, 1D);
 		this.PropagationZ.WidthRequest = 140;
@@ -685,9 +750,9 @@ public partial class MainWindow
 		this.PropagationZ.ClimbRate = 1D;
 		this.PropagationZ.Numeric = true;
 		this.LayoutPageReconstruction.Add(this.PropagationZ);
-		global::Gtk.Fixed.FixedChild w47 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationZ]));
-		w47.X = 340;
-		w47.Y = 130;
+		global::Gtk.Fixed.FixedChild w52 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationZ]));
+		w52.X = 340;
+		w52.Y = 130;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.PropagationScrollZ = new global::Gtk.HScrollbar(null);
 		this.PropagationScrollZ.WidthRequest = 400;
@@ -698,18 +763,18 @@ public partial class MainWindow
 		this.PropagationScrollZ.Adjustment.PageSize = 1D;
 		this.PropagationScrollZ.Adjustment.StepIncrement = 1D;
 		this.LayoutPageReconstruction.Add(this.PropagationScrollZ);
-		global::Gtk.Fixed.FixedChild w48 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationScrollZ]));
-		w48.X = 340;
-		w48.Y = 170;
+		global::Gtk.Fixed.FixedChild w53 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationScrollZ]));
+		w53.X = 340;
+		w53.Y = 170;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.LabelPropagationZ1 = new global::Gtk.Label();
 		this.LabelPropagationZ1.Name = "LabelPropagationZ1";
 		this.LabelPropagationZ1.LabelProp = global::Mono.Unix.Catalog.GetString("Distance (&#956;m)");
 		this.LabelPropagationZ1.UseMarkup = true;
 		this.LayoutPageReconstruction.Add(this.LabelPropagationZ1);
-		global::Gtk.Fixed.FixedChild w49 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagationZ1]));
-		w49.X = 490;
-		w49.Y = 135;
+		global::Gtk.Fixed.FixedChild w54 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagationZ1]));
+		w54.X = 490;
+		w54.Y = 135;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.UIManager.AddUiFromString("<ui><toolbar name=\'ReconToolbar\'><toolitem name=\'ComputePropagationButton\' action" +
 				"=\'ComputePropagationButton\'/><toolitem name=\'SaveReconstructionButton\' action=\'S" +
@@ -719,9 +784,9 @@ public partial class MainWindow
 		this.ReconToolbar.ShowArrow = false;
 		this.ReconToolbar.ToolbarStyle = ((global::Gtk.ToolbarStyle)(0));
 		this.LayoutPageReconstruction.Add(this.ReconToolbar);
-		global::Gtk.Fixed.FixedChild w50 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconToolbar]));
-		w50.X = 340;
-		w50.Y = 200;
+		global::Gtk.Fixed.FixedChild w55 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconToolbar]));
+		w55.X = 340;
+		w55.Y = 200;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.PropagationWavelength = new global::Gtk.SpinButton(0D, 100000D, 1D);
 		this.PropagationWavelength.WidthRequest = 140;
@@ -730,17 +795,17 @@ public partial class MainWindow
 		this.PropagationWavelength.ClimbRate = 1D;
 		this.PropagationWavelength.Numeric = true;
 		this.LayoutPageReconstruction.Add(this.PropagationWavelength);
-		global::Gtk.Fixed.FixedChild w51 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationWavelength]));
-		w51.X = 340;
-		w51.Y = 50;
+		global::Gtk.Fixed.FixedChild w56 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationWavelength]));
+		w56.X = 340;
+		w56.Y = 50;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.LabelPropagationWavelength = new global::Gtk.Label();
 		this.LabelPropagationWavelength.Name = "LabelPropagationWavelength";
 		this.LabelPropagationWavelength.LabelProp = global::Mono.Unix.Catalog.GetString("Wavelength (nm)");
 		this.LayoutPageReconstruction.Add(this.LabelPropagationWavelength);
-		global::Gtk.Fixed.FixedChild w52 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagationWavelength]));
-		w52.X = 490;
-		w52.Y = 55;
+		global::Gtk.Fixed.FixedChild w57 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagationWavelength]));
+		w57.X = 490;
+		w57.Y = 55;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.PropagationPitch = new global::Gtk.SpinButton(0D, 10000D, 1D);
 		this.PropagationPitch.WidthRequest = 140;
@@ -749,18 +814,18 @@ public partial class MainWindow
 		this.PropagationPitch.ClimbRate = 1D;
 		this.PropagationPitch.Numeric = true;
 		this.LayoutPageReconstruction.Add(this.PropagationPitch);
-		global::Gtk.Fixed.FixedChild w53 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationPitch]));
-		w53.X = 340;
-		w53.Y = 90;
+		global::Gtk.Fixed.FixedChild w58 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.PropagationPitch]));
+		w58.X = 340;
+		w58.Y = 90;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.LabelPropagationPitch = new global::Gtk.Label();
 		this.LabelPropagationPitch.Name = "LabelPropagationPitch";
 		this.LabelPropagationPitch.LabelProp = global::Mono.Unix.Catalog.GetString("Pitch (&#956;m)");
 		this.LabelPropagationPitch.UseMarkup = true;
 		this.LayoutPageReconstruction.Add(this.LabelPropagationPitch);
-		global::Gtk.Fixed.FixedChild w54 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagationPitch]));
-		w54.X = 490;
-		w54.Y = 95;
+		global::Gtk.Fixed.FixedChild w59 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelPropagationPitch]));
+		w59.X = 490;
+		w59.Y = 95;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.ReconElapsed = new global::Gtk.Entry();
 		this.ReconElapsed.WidthRequest = 140;
@@ -768,20 +833,20 @@ public partial class MainWindow
 		this.ReconElapsed.IsEditable = false;
 		this.ReconElapsed.InvisibleChar = '•';
 		this.LayoutPageReconstruction.Add(this.ReconElapsed);
-		global::Gtk.Fixed.FixedChild w55 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconElapsed]));
-		w55.X = 340;
-		w55.Y = 250;
+		global::Gtk.Fixed.FixedChild w60 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.ReconElapsed]));
+		w60.X = 340;
+		w60.Y = 250;
 		// Container child LayoutPageReconstruction.Gtk.Fixed+FixedChild
 		this.LabelReconElapsed = new global::Gtk.Label();
 		this.LabelReconElapsed.Name = "LabelReconElapsed";
 		this.LabelReconElapsed.LabelProp = global::Mono.Unix.Catalog.GetString("Elapsed time (ms)");
 		this.LayoutPageReconstruction.Add(this.LabelReconElapsed);
-		global::Gtk.Fixed.FixedChild w56 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelReconElapsed]));
-		w56.X = 490;
-		w56.Y = 255;
+		global::Gtk.Fixed.FixedChild w61 = ((global::Gtk.Fixed.FixedChild)(this.LayoutPageReconstruction[this.LabelReconElapsed]));
+		w61.X = 490;
+		w61.Y = 255;
 		this.MainNotebook.Add(this.LayoutPageReconstruction);
-		global::Gtk.Notebook.NotebookChild w57 = ((global::Gtk.Notebook.NotebookChild)(this.MainNotebook[this.LayoutPageReconstruction]));
-		w57.Position = 2;
+		global::Gtk.Notebook.NotebookChild w62 = ((global::Gtk.Notebook.NotebookChild)(this.MainNotebook[this.LayoutPageReconstruction]));
+		w62.Position = 2;
 		// Notebook tab
 		this.LabelPageReconstruction = new global::Gtk.Label();
 		this.LabelPageReconstruction.Name = "LabelPageReconstruction";
@@ -789,9 +854,9 @@ public partial class MainWindow
 		this.MainNotebook.SetTabLabel(this.LayoutPageReconstruction, this.LabelPageReconstruction);
 		this.LabelPageReconstruction.ShowAll();
 		this.MainLayout.Add(this.MainNotebook);
-		global::Gtk.Fixed.FixedChild w58 = ((global::Gtk.Fixed.FixedChild)(this.MainLayout[this.MainNotebook]));
-		w58.X = 20;
-		w58.Y = 70;
+		global::Gtk.Fixed.FixedChild w63 = ((global::Gtk.Fixed.FixedChild)(this.MainLayout[this.MainNotebook]));
+		w63.X = 20;
+		w63.Y = 70;
 		this.Add(this.MainLayout);
 		if ((this.Child != null))
 		{
@@ -814,6 +879,8 @@ public partial class MainWindow
 		this.InputEventBox.ButtonPressEvent += new global::Gtk.ButtonPressEventHandler(this.OnInputEventBoxButtonPressEvent);
 		this.InputScrollX.ValueChanged += new global::System.EventHandler(this.OnInputScrollXValueChanged);
 		this.NFFT.ValueChanged += new global::System.EventHandler(this.OnNFFTValueChanged);
+		this.InputWidth.ValueChanged += new global::System.EventHandler(this.OnInputWidthValueChanged);
+		this.InputHeight.ValueChanged += new global::System.EventHandler(this.OnInputHeightValueChanged);
 		this.PhaseScrollY.ValueChanged += new global::System.EventHandler(this.OnPhaseScrollYValueChanged);
 		this.PhaseScrollX.ValueChanged += new global::System.EventHandler(this.OnPhaseScrollXValueChanged);
 		this.LensPhase.Toggled += new global::System.EventHandler(this.OnLensPhaseToggled);

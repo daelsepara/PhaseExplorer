@@ -305,6 +305,80 @@
                         <property name="type">tab</property>
                       </packing>
                     </child>
+                    <child>
+                      <widget class="Gtk.Fixed" id="LayoutPageInputParameters">
+                        <property name="MemberName" />
+                        <property name="HasWindow">False</property>
+                        <child>
+                          <widget class="Gtk.Label" id="LabelWidth">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">Width</property>
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">20</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.SpinButton" id="InputWidth">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">150</property>
+                            <property name="Lower">256</property>
+                            <property name="Upper">20480</property>
+                            <property name="PageIncrement">1</property>
+                            <property name="StepIncrement">1</property>
+                            <property name="ClimbRate">1</property>
+                            <property name="Numeric">True</property>
+                            <property name="Value">256</property>
+                            <signal name="ValueChanged" handler="OnInputWidthValueChanged" />
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">40</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.Label" id="LabelHeight">
+                            <property name="MemberName" />
+                            <property name="LabelProp" translatable="yes">Height</property>
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">80</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="Gtk.SpinButton" id="InputHeight">
+                            <property name="MemberName" />
+                            <property name="WidthRequest">150</property>
+                            <property name="Lower">256</property>
+                            <property name="Upper">20480</property>
+                            <property name="PageIncrement">1</property>
+                            <property name="StepIncrement">1</property>
+                            <property name="ClimbRate">1</property>
+                            <property name="Numeric">True</property>
+                            <property name="Value">256</property>
+                            <signal name="ValueChanged" handler="OnInputHeightValueChanged" />
+                          </widget>
+                          <packing>
+                            <property name="X">20</property>
+                            <property name="Y">100</property>
+                          </packing>
+                        </child>
+                      </widget>
+                      <packing>
+                        <property name="Position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="Gtk.Label" id="LabelPageInputParameters">
+                        <property name="MemberName" />
+                        <property name="LabelProp" translatable="yes">Input</property>
+                      </widget>
+                      <packing>
+                        <property name="type">tab</property>
+                      </packing>
+                    </child>
                   </widget>
                   <packing>
                     <property name="X">370</property>
