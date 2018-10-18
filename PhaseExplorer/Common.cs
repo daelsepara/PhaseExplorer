@@ -156,18 +156,18 @@ public static class Common
         }
     }
 
-	public static CultureInfo ci = new CultureInfo("en-US");
+    public static CultureInfo ci = new CultureInfo("en-US");
 
     // see: https://www.johndcook.com/blog/csharp_erf/
     public static double Erf(double x)
     {
         // constants
-		double a1 = Convert.ToDouble("0.254829592", ci);
-		double a2 = Convert.ToDouble("-0.284496736", ci);
-		double a3 = Convert.ToDouble("1.421413741", ci);
-		double a4 = Convert.ToDouble("-1.453152027", ci);
-		double a5 = Convert.ToDouble("1.061405429", ci);
-		double p = Convert.ToDouble("0.3275911", ci);
+        double a1 = Convert.ToDouble("0.254829592", ci);
+        double a2 = Convert.ToDouble("-0.284496736", ci);
+        double a3 = Convert.ToDouble("1.421413741", ci);
+        double a4 = Convert.ToDouble("-1.453152027", ci);
+        double a5 = Convert.ToDouble("1.061405429", ci);
+        double p = Convert.ToDouble("0.3275911", ci);
 
         // Save the sign of x
         int sign = 1;
