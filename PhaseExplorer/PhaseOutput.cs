@@ -10,7 +10,7 @@ public class PhaseOutput
         Phase = (double*)Marshal.AllocHGlobal(length * sizeof(double));
 
         for (var i = 0; i < length; i++)
-            Phase[i] = 0.0;
+            Phase[i] = 0;
     }
 
     unsafe public PhaseOutput(double* phase, int length)
@@ -26,7 +26,7 @@ public class PhaseOutput
         for (var i = 0; i < length; i++)
         {
             Phase[i] += phase.Phase[i];
-            Phase[i] = Common.Mod(Phase[i], 2.0 * Math.PI);
+            Phase[i] = Common.Mod(Phase[i], 2 * Math.PI);
         }
     }
 

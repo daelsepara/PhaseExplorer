@@ -10,7 +10,7 @@ public class IntensityOutput
         Intensity = (double*)Marshal.AllocHGlobal(length * sizeof(double));
 
         for (var i = 0; i < length; i++)
-            Intensity[i] = 0.0;
+            Intensity[i] = 0;
     }
 
     unsafe public IntensityOutput(double* intensity, int length)

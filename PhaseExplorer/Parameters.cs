@@ -15,8 +15,8 @@ public static class Parameters
     public static int SLModX = 800;
     public static int SLModY = 600;
 
-    public static double Pitch = 10.0;
-    public static double Wavelength = 650.0;
+    public static double Pitch = 10;
+    public static double Wavelength = 650;
     public static double LensZ;
 
     public static double BlazedX;

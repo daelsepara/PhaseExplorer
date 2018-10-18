@@ -156,20 +156,20 @@ public partial class MainWindow : Gtk.Window
 
         if (InputScrollX.Sensitive)
         {
-            InputScrollX.SetRange(0.0, InputPixbuf.Width - Parameters.WindowX);
+            InputScrollX.SetRange(0, InputPixbuf.Width - Parameters.WindowX);
         }
         else
         {
-            InputScrollX.SetRange(0.0, Parameters.WindowX);
+            InputScrollX.SetRange(0, Parameters.WindowX);
         }
 
         if (InputScrollY.Sensitive)
         {
-            InputScrollY.SetRange(0.0, InputPixbuf.Height - Parameters.WindowY);
+            InputScrollY.SetRange(0, InputPixbuf.Height - Parameters.WindowY);
         }
         else
         {
-            InputScrollY.SetRange(0.0, Parameters.WindowY);
+            InputScrollY.SetRange(0, Parameters.WindowY);
         }
 
         Parameters.InputX = 0;
@@ -189,20 +189,20 @@ public partial class MainWindow : Gtk.Window
 
         if (PhaseScrollX.Sensitive)
         {
-            PhaseScrollX.SetRange(0.0, PhasePixbuf.Width - Parameters.WindowX);
+            PhaseScrollX.SetRange(0, PhasePixbuf.Width - Parameters.WindowX);
         }
         else
         {
-            PhaseScrollX.SetRange(0.0, Parameters.WindowX);
+            PhaseScrollX.SetRange(0, Parameters.WindowX);
         }
 
         if (PhaseScrollY.Sensitive)
         {
-            PhaseScrollY.SetRange(0.0, PhasePixbuf.Height - Parameters.WindowY);
+            PhaseScrollY.SetRange(0, PhasePixbuf.Height - Parameters.WindowY);
         }
         else
         {
-            PhaseScrollY.SetRange(0.0, Parameters.WindowY);
+            PhaseScrollY.SetRange(0, Parameters.WindowY);
         }
 
         Parameters.PhaseX = 0;
@@ -222,20 +222,20 @@ public partial class MainWindow : Gtk.Window
 
         if (ReconScrollX.Sensitive)
         {
-            ReconScrollX.SetRange(0.0, ReconPixbuf.Width - Parameters.WindowX);
+            ReconScrollX.SetRange(0, ReconPixbuf.Width - Parameters.WindowX);
         }
         else
         {
-            ReconScrollX.SetRange(0.0, Parameters.WindowX);
+            ReconScrollX.SetRange(0, Parameters.WindowX);
         }
 
         if (ReconScrollY.Sensitive)
         {
-            ReconScrollY.SetRange(0.0, ReconPixbuf.Height - Parameters.WindowY);
+            ReconScrollY.SetRange(0, ReconPixbuf.Height - Parameters.WindowY);
         }
         else
         {
-            ReconScrollY.SetRange(0.0, Parameters.WindowY);
+            ReconScrollY.SetRange(0, Parameters.WindowY);
         }
 
         Parameters.ReconX = 0;
