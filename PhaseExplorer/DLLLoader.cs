@@ -68,13 +68,8 @@ class DLLLoader
 
     public static int FreeLibrary(IntPtr handle)
     {
-        if (Common.OSTest.IsWindows())
-        {
-            var code = Windows.DLClose(handle);
-
-            return code ? 0 : 1;
-        }
-
-        return Common.OSTest.IsRunningOnMac() ? OSX.DLClose(handle) : Linux.DLClose(handle);
+        return Common.OSTest.IsWindows()
+            ? Windows.DLClose(handle) ? 0 : 1
+            : Common.OSTest.IsRunningOnMac() ? OSX.DLClose(handle) : Linux.DLClose(handle);
     }
 }
