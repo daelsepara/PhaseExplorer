@@ -560,6 +560,8 @@ public partial class MainWindow : Gtk.Window
             var gs = GerchbergSaxtonDLL.ComputePhase("gs");
 
             phase.Add(gs, size);
+
+            gs.Free();
         }
 
         if (LensPhase.Active)
